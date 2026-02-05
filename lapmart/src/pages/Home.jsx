@@ -38,6 +38,44 @@ const Home = () => {
     }
   ];
 
+  // Product categories
+  const categories = [
+    { name: 'Gaming', icon: '🎮', count: '45+' },
+    { name: 'Creator', icon: '🎨', count: '38+' },
+    { name: 'Business', icon: '💼', count: '42+' },
+    { name: 'Budget', icon: '💰', count: '29+' }
+  ];
+
+  // Testimonials
+  const testimonials = [
+    {
+      name: 'Sarah Chen',
+      role: 'Digital Creator',
+      content: 'Found the perfect MacBook for my design work. Excellent service and super fast delivery!',
+      avatar: '👩‍💼'
+    },
+    {
+      name: 'Marcus Johnson',
+      role: 'Software Developer',
+      content: 'Great prices and quality. The product was exactly as described. Highly recommend!',
+      avatar: '👨‍💻'
+    },
+    {
+      name: 'Emma Rodriguez',
+      role: 'Content Creator',
+      content: 'Customer support was amazing. They helped me choose the right laptop for streaming.',
+      avatar: '👩‍🎬'
+    }
+  ];
+
+  // Stats
+  const stats = [
+    { label: 'Happy Customers', value: '50K+' },
+    { label: 'Products Available', value: '500+' },
+    { label: 'Countries Shipped', value: '120+' },
+    { label: 'Customer Rating', value: '4.9/5' }
+  ];
+
   return (
     <div>
       {/* Hero Section */}
@@ -50,9 +88,9 @@ const Home = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl animate-[fadeIn_0.8s_ease-out]">
             {/* New Badge */}
-            <div className="inline-block mb-6">
+            <div className="inline-block mb-6 animate-[slideDown_0.6s_ease-out]">
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -62,16 +100,16 @@ const Home = () => {
               </span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-[slideUp_0.8s_ease-out_0.2s_both]">
               Find Your
               <span className="block bg-gradient-to-r from-yellow-200 to-pink-200 bg-clip-text text-transparent">
                 Perfect Laptop
               </span>
             </h1>
-            <p className="text-xl sm:text-2xl mb-10 text-blue-50 leading-relaxed">
+            <p className="text-xl sm:text-2xl mb-10 text-blue-50 leading-relaxed animate-[slideUp_0.8s_ease-out_0.4s_both]">
               Premium laptops curated for creators, gamers, and professionals. Unbeatable prices, expert support.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 animate-[slideUp_0.8s_ease-out_0.6s_both]">
               <Link
                 to="/products"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-200"
@@ -104,10 +142,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Quality Card */}
-            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 animate-[slideUp_0.6s_ease-out_0.2s_both]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -118,10 +156,10 @@ const Home = () => {
             </div>
 
             {/* Price Card */}
-            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 animate-[slideUp_0.6s_ease-out_0.4s_both]">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -132,10 +170,10 @@ const Home = () => {
             </div>
 
             {/* Delivery Card */}
-            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 animate-[slideUp_0.6s_ease-out_0.6s_both]">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-600 rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -151,8 +189,8 @@ const Home = () => {
       {/* Featured Products */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full mb-4">
+          <div className="text-center mb-16 animate-[fadeIn_0.8s_ease-out]">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full mb-4 animate-[scaleIn_0.5s_ease-out]">
               POPULAR CHOICES
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -170,8 +208,7 @@ const Home = () => {
           <div className="text-center mt-16">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-200"
-            >
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-200 animate-[bounce_2s_infinite]">
               View All Products
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -189,16 +226,16 @@ const Home = () => {
         </div>
         
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight animate-[fadeIn_0.8s_ease-out]">
             Ready to Find Your
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Perfect Laptop?
             </span>
           </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-[fadeIn_0.8s_ease-out_0.2s_both]">
             Browse our extensive collection of premium laptops and get the best deals today. Expert support included.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-[fadeIn_0.8s_ease-out_0.4s_both]">
             <Link
               to="/products"
               className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-200"
