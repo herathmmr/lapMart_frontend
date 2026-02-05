@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import Button from '../components/Button';
 
 const Login = () => {
@@ -8,6 +9,7 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -16,12 +18,36 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Login logic will be implemented with backend
-    console.log('Login:', formData);
-    // For now, just navigate to home
-    navigate('/');
+    setIsLoading(true);
+
+    // Simulate login process
+    const loginPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 1500);
+    });
+
+    toast.promise(
+      loginPromise,
+      {
+        loading: 'Signing in...',
+        success: 'Welcome back! 🎉',
+        error: 'Login failed. Please try again.',
+      }
+    );
+
+    try {
+      await loginPromise;
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    } catch (error) {
+      console.error('Login error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

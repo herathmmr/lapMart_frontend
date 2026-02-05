@@ -1,10 +1,32 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import RatingStars from '../RatingStars';
 
 const ProductCard = ({ product }) => {
   const { id, title, price, image, rating, reviews } = product;
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    toast.success(`${title} added to cart!`, {
+      icon: '🛒',
+    });
+  };
+
+  const handleAddToWishlist = (e) => {
+    e.preventDefault();
+    toast.success('Added to wishlist!', {
+      icon: '❤️',
+    });
+  };
+
+  const handleQuickView = (e) => {
+    e.preventDefault();
+    toast('Quick view opening...', {
+      icon: '👀',
+    });
+  };
 
   return (
     <Link to={`/products/${id}`}>
@@ -27,19 +49,13 @@ const ProductCard = ({ product }) => {
           }`}>
             <div className="absolute bottom-4 left-4 right-4 flex gap-2">
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log('Quick view:', id);
-                }}
+                onClick={handleQuickView}
                 className="grow bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2.5 rounded-lg font-medium hover:bg-white transition-all duration-200 text-sm"
               >
                 Quick View
               </button>
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log('Add to wishlist:', id);
-                }}
+                onClick={handleAddToWishlist}
                 className="bg-white/90 backdrop-blur-sm p-2.5 rounded-lg hover:bg-white transition-all duration-200"
                 aria-label="Add to wishlist"
               >
@@ -79,10 +95,7 @@ const ProductCard = ({ product }) => {
               </span>
             </div>
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                console.log('Added to cart:', id);
-              }}
+              onClick={handleAddToCart}
               className="p-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-200"
               aria-label="Add to cart"
             >

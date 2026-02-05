@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import Button from '../components/Button';
 
 const Register = () => {
@@ -10,6 +11,7 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,12 +20,48 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Registration logic will be implemented with backend
-    console.log('Register:', formData);
-    // For now, just navigate to login
-    navigate('/login');
+
+    // Validation
+    if (formData.password !== formData.confirmPassword) {
+      toast.error('Passwords do not match!');
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      toast.error('Password must be at least 6 characters!');
+      return;
+    }
+
+    setIsLoading(true);
+
+    // Simulate registration process
+    const registerPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 1500);
+    });
+
+    toast.promise(
+      registerPromise,
+      {
+        loading: 'Creating your account...',
+        success: 'Account created successfully! 🎉',
+        error: 'Registration failed. Please try again.',
+      }
+    );
+
+    try {
+      await registerPromise;
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
+    } catch (error) {
+      console.error('Registration error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
