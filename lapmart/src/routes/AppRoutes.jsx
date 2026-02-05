@@ -10,6 +10,8 @@ import Cart from '../pages/Cart';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Profile from '../pages/Profile';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
 import NotFound from '../pages/NotFound';
 
 const AppRoutes = () => {
@@ -22,6 +24,8 @@ const AppRoutes = () => {
         <Route path="products/:id" element={<ProductDetails />} />
         <Route path="cart" element={<Cart />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
 
       {/* Auth Layout Routes */}
